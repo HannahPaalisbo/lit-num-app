@@ -33,7 +33,7 @@ try {
         
         while (($row3 = mysqli_fetch_assoc($result3))) {
             $topicId = $row3['topic_id'];
-            $topic = $row3['topic_title'];
+            $topic = $row3['topic_name'];
             
             $quizId = "";
             $question = "";
