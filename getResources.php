@@ -86,7 +86,7 @@ try {
 
             $gquery = "SELECT * FROM tbl_quiz WHERE topic_id LIKE ?";
             $stmt = mysqli_prepare($db_con, $gquery);
-            $param = "%" . $topicId . "%";
+            $param = "%QZ" . $cleanedLsnId . "%";
             mysqli_stmt_bind_param($stmt, "s", $param);
             mysqli_stmt_execute($stmt);
             $result8 = mysqli_stmt_get_result($stmt);
