@@ -34,6 +34,15 @@ try {
         while (($row3 = mysqli_fetch_assoc($result3))) {
             $topicId = $row3['topic_id'];
             $topic = $row3['topic_title'];
+            
+            $quizId = "";
+            $question = "";
+            $quizImg = "";
+            $selectionA = "";
+            $selectionB = "";
+            $selectionC = "";
+            $selectionD = "";
+            
             $imageId = $row3['image_id'];
             $audioId = $row3['audio_id'];
             $videoId = $row3['video_id'];
@@ -47,6 +56,13 @@ try {
                 "subject" => $subject,
                 "topicId" => $topicId,
                 "topic" => $topic,
+                "quizId" => $quizId,
+                "question" => $question,
+                "quizImg" => $quizImg,
+                "selectionA" => $selectionA,
+                "selectionB" => $selectionB,
+                "selectionC" => $selectionC,
+                "selectionD" => $selectionD,
                 "kTopic" => $kTopic,
                 "fTopic" => $fTopic,
                 "eTopic" => $eTopic,
@@ -66,6 +82,35 @@ try {
                 $item["kTopic"] = $row7['kalagan'];
                 $item["fTopic"] = $row7['filipino'];
                 $item["eTopic"] = $row7['english'];
+            }
+
+            $gquery = "SELECT * FROM tbl_quiz WHERE topic_id LIKE ?";
+            $stmt = mysqli_prepare($db_con, $gquery);
+            $param = "%" . $topicId . "%";
+            mysqli_stmt_bind_param($stmt, "s", $param);
+            mysqli_stmt_execute($stmt);
+            $result8 = mysqli_stmt_get_result($stmt);
+            mysqli_stmt_close($stmt);
+
+            while($row8 = mysqli_fetch_assoc($result8)) {
+                $item["quizId"] = $row8['quiz_id'];
+                $item["question"] = $row8['quiz_question'];
+                $item["selectionA"] = $row8['quiz_selectionA'];
+                $item["selectionB"] = $row8['quiz_selectionB'];
+                $item["selectionC"] = $row8['quiz_selectionC'];
+                $item["selectionD"] = $row8['quiz_selectionD'];
+            }
+
+            $hquery = "SELECT * FROM tbl_quiz_image WHERE quiz_id LIKE ?";
+            $stmt = mysqli_prepare($db_con, $hquery);
+            $param = "%" . $item["quizId"] . "%";
+            mysqli_stmt_bind_param($stmt, "s", $param);
+            mysqli_stmt_execute($stmt);
+            $result9 = mysqli_stmt_get_result($stmt);
+            mysqli_stmt_close($stmt);
+
+            while($row9 = mysqli_fetch_assoc($result9)) {
+                $item["quizImg"] = $row9['image_path'];
             }
     
             if ($imageId != null) {
@@ -101,6 +146,13 @@ try {
         if($row3 = mysqli_fetch_assoc($result3) == null) {
             $topicId = "";
             $topic = "";
+            $quizId = "";
+            $question = "";
+            $quizImg = "";
+            $selectionA = "";
+            $selectionB = "";
+            $selectionC = "";
+            $selectionD = "";
             $kTopic = "";
             $fTopic = "";
             $eTopic = "";
@@ -111,6 +163,13 @@ try {
                 "subject" => $subject,
                 "topicId" => $topicId,
                 "topic" => $topic,
+                "quizId" => $quizId,
+                "question" => $question,
+                "quizImg" => $quizImg,
+                "selectionA" => $selectionA,
+                "selectionB" => $selectionB,
+                "selectionC" => $selectionC,
+                "selectionD" => $selectionD,
                 "kTopic" => $kTopic,
                 "fTopic" => $fTopic,
                 "eTopic" => $eTopic,
