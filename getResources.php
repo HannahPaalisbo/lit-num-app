@@ -25,7 +25,7 @@ try {
 
         $bquery = "SELECT * FROM tbl_topic WHERE topic_id LIKE ?";
         $stmt = mysqli_prepare($db_con, $bquery);
-        $param = "%TPC-ID" . $cleanedLsnId . "%";
+        $param = "%TPC" . $cleanedLsnId . "%";
         mysqli_stmt_bind_param($stmt, "s", $param);
         mysqli_stmt_execute($stmt);
         $result3 = mysqli_stmt_get_result($stmt);
