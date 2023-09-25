@@ -1,8 +1,8 @@
 <?php
-$host = "127.0.0.1:3307"; //change ip host here
-$username = "admin"; //change username
-$password = "admin"; //change password
-$database = "db_tagakaulo"; //change database name if applicable
+$host = "tagakauloedu.com"; //change ip host here
+$username = "u170333284_admin"; //change username
+$password = "Capstone1!"; //change password
+$database = "u170333284_db_tagakaulo"; //change database name if applicable
 
 $db_con = mysqli_connect($host, $username, $password, $database);
 
