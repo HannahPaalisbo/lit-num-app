@@ -1,5 +1,5 @@
 <?php
-$host = "tagakauloedu.com"; //change ip host here
+$host = "156.67.222.1"; //change ip host here
 $username = "u170333284_admin"; //change username
 $password = "Capstone1!"; //change password
 $database = "u170333284_db_tagakaulo"; //change database name if applicable
