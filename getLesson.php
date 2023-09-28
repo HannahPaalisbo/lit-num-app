@@ -5,7 +5,8 @@ require 'connection.php';
 
 try {
     $data = array();
-    $query = "SELECT * FROM tbl_lesson";
+    $tableName = "tbl_lesson";
+    $query = "SELECT * FROM " . $tableName;
     $result = mysqli_query($db_con, $query);
 
     $subjectId = "";
