@@ -29,7 +29,7 @@ try {
         $item["topicId"] = $row['topic_id'];
         $item["topic"] = $row['topic_name'];
         $item["subjectIdRef"] = $row['lesson_id'];
-
+        $data[] = $item;
         $aquery = "SELECT * FROM tbl_image WHERE topic_id LIKE ?;";
         $stmt = mysqli_prepare($db_con, $aquery);
         $param = $row['topic_id'];
@@ -58,7 +58,7 @@ try {
             $data[] = $item;
         }
 
-        $data[] = $item;
+        
     }               
 
     $jsonData = json_encode($data);
