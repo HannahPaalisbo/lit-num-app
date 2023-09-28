@@ -22,8 +22,8 @@ try {
 
     while($row = mysqli_fetch_assoc($result)) {
         $item["teacherId"] = $row['teacher_id'];
-        $item["firstName"] = $row['firstName'];
-        $item["lastName"] = $row['lastName'];
+        $item["firstName"] = $row['teacher_first_name'];
+        $item["lastName"] = $row['teacher_last_name'];
         $data[] = $item;
     }                     
 
