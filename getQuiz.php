@@ -5,7 +5,8 @@ require 'connection.php';
 
 try {
     $data = array();
-    $query = "SELECT * FROM tbl_topic";
+    $tableName = "tbl_quiz";
+    $query = "SELECT * FROM " . $tableName;
     $result = mysqli_query($db_con, $query);
 
     $quizId = "";
@@ -27,10 +28,6 @@ try {
         "quizImg" => $quizImg,
         "quizTopicRef" => $quizTopicRef,
     );
-
-    $tableName = "tbl_quiz";
-    $query = "SELECT * FROM " . $tableName;
-    $result = mysqli_query($db_con, $query);
 
     while($row = mysqli_fetch_assoc($result)) {
         $item["quizId"] = $row['quiz_id'];
