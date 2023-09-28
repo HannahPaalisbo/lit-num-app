@@ -17,6 +17,7 @@ try {
     $langTopicRef = "";
 
     $item = array(
+        "languageId" => $languageId,
         "kalagan" => $kalagan,
         "filipino" => $filipino,
         "english" => $english,
@@ -24,6 +25,7 @@ try {
     );
 
     while($row = mysqli_fetch_assoc($result)) {
+        $item["languageId"] = $row['language_id'];
         $item["kalagan"] = $row['kalagan'];
         $item["filipino"] = $row['filipino'];
         $item["english"] = $row['english'];
