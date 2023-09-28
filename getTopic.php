@@ -29,7 +29,6 @@ try {
         $item["topicId"] = $row['topic_id'];
         $item["topic"] = $row['topic_name'];
         $item["subjectIdRef"] = $row['lesson_id'];
-        $data[] = $item;
         $aquery = "SELECT * FROM tbl_image WHERE topic_id LIKE ?;";
         $stmt = mysqli_prepare($db_con, $aquery);
         $param = $row['topic_id'];
@@ -40,8 +39,6 @@ try {
     
         while ($row2 = mysqli_fetch_assoc($result2)) {
             $item["imagePath"] = $row2['image_name'];
-            
-            $data[] = $item;
         }
     
         $bquery = "SELECT * FROM tbl_video WHERE topic_id LIKE ?;";
@@ -54,11 +51,10 @@ try {
     
         while ($row3 = mysqli_fetch_assoc($result3)) {
             $item["videoPath"] = $row3['video_path'];
-            
-            $data[] = $item;
         }
 
         
+        $data[] = $item;
     }               
 
     $jsonData = json_encode($data);
