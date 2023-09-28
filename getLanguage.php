@@ -17,7 +17,6 @@ try {
     $langTopicRef = "";
 
     $item = array(
-        "languageId" => $languageId,
         "kalagan" => $kalagan,
         "filipino" => $filipino,
         "english" => $english,
