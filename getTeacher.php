@@ -10,12 +10,12 @@ try {
     $query = "SELECT * FROM " . $tableName;
     $result = mysqli_query($db_con, $query);
 
-    teacherId = "";
+    $teacherId = "";
     $firstName = "";
     $lastName = "";
 
     $item = array(
-        "teacherId" => teacherId,
+        "teacherId" => $teacherId,
         "firstName" => $firstName,
         "lastName" => $lastName
     );
