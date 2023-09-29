@@ -39,7 +39,7 @@ try {
         mysqli_stmt_close($stmt);
     
         while ($row2 = mysqli_fetch_assoc($result2)) {
-            $item["imagePath"] = $row2['image_name'];
+            $item["imagePath"] = $row2['image_path'];
         }
     
         $bquery = "SELECT * FROM tbl_video WHERE topic_id LIKE ?;";
