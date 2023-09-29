@@ -6,7 +6,7 @@ require 'connection.php';
 try {
     $data = array();
     $tableName = "tbl_topic";
-    $query = "SELECT * FROM " . $tableName;
+    $query = "SELECT * FROM " . $tableName . "ORDER BY lesson_id";
     $result = mysqli_query($db_con, $query);
 
     $subjectId = "";
