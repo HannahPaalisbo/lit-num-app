@@ -18,7 +18,8 @@ try {
     $quizImg = "";
     $quizTopicRef = "";
 
-    $item = array(
+    while($row = mysqli_fetch_assoc($result)) {
+        $item = array(
         "quizId" => $quizId,
         "question" => $question,
         "selectionA" => $selectionA,
@@ -27,9 +28,8 @@ try {
         "selectionD" => $selectionD,
         "quizImg" => $quizImg,
         "quizTopicRef" => $quizTopicRef,
-    );
-
-    while($row = mysqli_fetch_assoc($result)) {
+        );
+        
         $item["quizId"] = $row['quiz_id'];
         $item["question"] = $row['quiz_question'];
         $item["selectionA"] = $row['quiz_selectionA'];
