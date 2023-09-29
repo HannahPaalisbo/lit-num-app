@@ -57,6 +57,7 @@ try {
 
         $item["topic"] = $row['topic_name'];
         $item["subjectIdRef"] = $row['lesson_id'];
+        $data[] = $item;
     }               
 
     $jsonData = json_encode($data);
