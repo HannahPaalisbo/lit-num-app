@@ -18,6 +18,8 @@ try {
 
     while (($row = mysqli_fetch_assoc($result))) {
         $topicId = $row['topic_id'];
+        $item["topic"] = $row['topic_name'];
+        $item["subjectIdRef"] = $row['lesson_id'];
         
         $item = array(
         "topicId" => $topicId,
@@ -52,9 +54,6 @@ try {
         while ($row3 = mysqli_fetch_assoc($result3)) {
             $item["videoPath"] = $row3['video_path'];
         }
-
-        $item["topic"] = $row['topic_name'];
-        $item["subjectIdRef"] = $row['lesson_id'];
         
         $data[] = $item;
     }
