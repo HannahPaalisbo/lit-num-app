@@ -16,7 +16,10 @@ try {
     $audioId = "";
     $videoId = "";
 
-    $item = array(
+    while (($row = mysqli_fetch_assoc($result))) {
+        $topicId = $row['topic_id'];
+        
+        $item = array(
         "topicId" => $topicId,
         "topic" => $topic,
         "subjectIdRef" => $subjectIdRef,
@@ -24,11 +27,7 @@ try {
         "audioPath" => $audioId,
         "videoPath" => $videoId,
         
-    );
-
-    while (($row = mysqli_fetch_assoc($result))) {
-        $topicId = $row['topic_id']
-        $item["topicId"] = $topicId;
+        );
         
         $aquery = "SELECT * FROM tbl_image WHERE topic_id = ?;";
         $stmt = mysqli_prepare($db_con, $aquery);
@@ -40,7 +39,6 @@ try {
     
         while ($row2 = mysqli_fetch_assoc($result2)) {
             $item["imagePath"] = $row2['image_path'];
-            $data[] = $item["imagePath"];
         }
     
         $bquery = "SELECT * FROM tbl_video WHERE topic_id = ?;";
@@ -53,7 +51,6 @@ try {
     
         while ($row3 = mysqli_fetch_assoc($result3)) {
             $item["videoPath"] = $row3['video_path'];
-            $data[] = $item["videoPath"];
         }
 
         $item["topic"] = $row['topic_name'];
