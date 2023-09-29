@@ -18,8 +18,6 @@ try {
 
     while (($row = mysqli_fetch_assoc($result))) {
         $topicId = $row['topic_id'];
-        $item["topic"] = $row['topic_name'];
-        $item["subjectIdRef"] = $row['lesson_id'];
         
         $item = array(
         "topicId" => $topicId,
@@ -30,6 +28,9 @@ try {
         "videoPath" => $videoId,
         
         );
+        
+        $item["topic"] = $row['topic_name'];
+        $item["subjectIdRef"] = $row['lesson_id'];
         
         $aquery = "SELECT * FROM tbl_image WHERE topic_id = ?;";
         $stmt = mysqli_prepare($db_con, $aquery);
