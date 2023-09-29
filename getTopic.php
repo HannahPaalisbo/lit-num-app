@@ -27,11 +27,12 @@ try {
     );
 
     while (($row = mysqli_fetch_assoc($result))) {
-        $item["topicId"] = $row['topic_id'];
+        $topicId = $row['topic_id']
+        $item["topicId"] = $topicId;
         
         $aquery = "SELECT * FROM tbl_image WHERE topic_id = ?;";
         $stmt = mysqli_prepare($db_con, $aquery);
-        $param = $row['topic_id'];
+        $param = $topicId;
         mysqli_stmt_bind_param($stmt, "s", $param);
         mysqli_stmt_execute($stmt);
         $result2 = mysqli_stmt_get_result($stmt);
@@ -44,7 +45,7 @@ try {
     
         $bquery = "SELECT * FROM tbl_video WHERE topic_id = ?;";
         $stmt = mysqli_prepare($db_con, $bquery);
-        $param = $row['topic_id'];
+        $param = $topicId;
         mysqli_stmt_bind_param($stmt, "s", $param);
         mysqli_stmt_execute($stmt);
         $result3 = mysqli_stmt_get_result($stmt);
