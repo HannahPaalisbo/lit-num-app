@@ -39,7 +39,6 @@ try {
     
         while ($row2 = mysqli_fetch_assoc($result2)) {
             $item["imagePath"] = $row2['image_path'];
-            $data[] = $item;
         }
     
         $bquery = "SELECT * FROM tbl_video WHERE topic_id = ?;";
@@ -52,13 +51,13 @@ try {
     
         while ($row3 = mysqli_fetch_assoc($result3)) {
             $item["videoPath"] = $row3['video_path'];
-            $data[] = $item;
         }
 
         $item["topic"] = $row['topic_name'];
         $item["subjectIdRef"] = $row['lesson_id'];
-        $data[] = $item;
-    }               
+        
+    }
+    $data[] = $item;
 
     $jsonData = json_encode($data);
     echo $jsonData;
