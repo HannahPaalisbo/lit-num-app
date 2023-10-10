@@ -38,7 +38,7 @@ try {
         $item["selectionB"] = $row['quiz_selectionB'];
         $item["selectionC"] = $row['quiz_selectionC'];
         $item["selectionD"] = $row['quiz_selectionD'];
-        $item["quizScore"] = $row['score']
+        $item["score"] = $row['score']
         $item["quizTopicRef"] = $row['topic_id'];
 
         $aquery = "SELECT * FROM tbl_quiz_image WHERE quiz_id LIKE ?";
