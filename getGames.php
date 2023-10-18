@@ -9,35 +9,17 @@ try {
     $query = "SELECT * FROM " . $tableName;
     $result = mysqli_query($db_con, $query);
 
-    $gameId = "";
-    $answer = "";
-    $question = "";
-    $hint = "";
-    $type = "";
-    $imagePath1 = "";
-    $imagePath2 = "";
-    $audioPath = "";
-
-    while($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
         $item = array(
-        "gameId" => $gameId,
-        "answer" => $answer,
-        "question" => $question,
-        "hint" => $hint,
-        "type" => $type,
-        "imagePath1" => $imagePath1,
-        "imagePath2" => $imagePath2,
-        "audioPath" => $audioPath,
+            "gameId" => $row['games_id'] ?? "",
+            "answer" => $row['answer'] ?? "",
+            "question" => $row['description'] ?? "",
+            "hint" => $row['hint'] ?? "",
+            "type" => $row['type'] ?? "",
+            "imagePath1" => $row['image_path_1'] ?? "",
+            "imagePath2" => $row['image_path_2'] ?? "",
+            "audioPath" => $row['audio_path'] ?? "",
         );
-        
-        $item["gameId"] = $row['games_id'] ?? "";
-        $item["answer"] = $row['answer'] ?? "";
-        $item["question"] = $row['description'] ?? "";
-        $item["hint"] = $row['hint'] ?? "";
-        $item["type"] = $row['type'] ?? "";
-        $item["imagePath1"] = $row['image_path_1'] ?? "";
-        $item["imagePath2"] = $row['image_path_2'] ?? "";
-        $item["audioPath"] = $row['audio_path'] ?? "";
 
         $data[] = $item;
     }                           
