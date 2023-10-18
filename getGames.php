@@ -30,14 +30,14 @@ try {
         "audioPath" => $audioPath,
         );
         
-        $item["gameId"] = $row['games_id'];
-        $item["answer"] = $row['answer'];
-        $item["question"] = $row['description'];
-        $item["hint"] = $row['hint'];
-        $item["type"] = $row['type'];
-        $item["imagePath1"] = $row['image_path_1'];
-        $item["imagePath2"] = $row['image_path_2'];
-        $item["audioPath"] = $row['audio_path'];
+        $item["gameId"] = $row['games_id'] ?? "";
+        $item["answer"] = $row['answer'] ?? "";
+        $item["question"] = $row['description'] ?? "";
+        $item["hint"] = $row['hint'] ?? "";
+        $item["type"] = $row['type'] ?? "";
+        $item["imagePath1"] = $row['image_path_1'] ?? "";
+        $item["imagePath2"] = $row['image_path_2'] ?? "";
+        $item["audioPath"] = $row['audio_path'] ?? "";
 
         $data[] = $item;
     }                           
