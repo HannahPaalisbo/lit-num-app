@@ -7,7 +7,7 @@ try {
     $data = array();
     
     $tableName = "tbl_schoolyear";
-    $query = "SELECT * FROM " . $tableName . " WHERE sy_status = '1' ORDER BY sy_start ASC";
+    $query = "SELECT * FROM " . $tableName . " WHERE sy_status = '1' ORDER BY sy_start";
     $result = mysqli_query($db_con, $query);
 
     $syId = "";
