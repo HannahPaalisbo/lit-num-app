@@ -6,7 +6,7 @@ require 'connection.php';
 try {
     $data = array();
     $tableName = "tbl_topic";
-    $query = "SELECT * FROM tbl_topic ORDER BY lesson_id ASC;";
+    $query = "SELECT * FROM " . $tableName . " WHERE topic_status = 1 ORDER BY lesson_id ASC;";
     $result = mysqli_query($db_con, $query);
 
     $subjectId = "";
