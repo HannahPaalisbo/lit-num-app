@@ -27,7 +27,8 @@ try {
         $querya = "SELECT * FROM " . $tableName . " WHERE category_id = '" . $categoryId ."'";
         $resulta = mysqli_query($db_con, $querya);
         $row2 = mysqli_fetch_assoc($resulta);
-        $item["category"] = $row2['category_name'];
+        $category = $row2['category_name'];
+        $item["category"] = $category.trim();
     
         $data[] = $item;
     }               
