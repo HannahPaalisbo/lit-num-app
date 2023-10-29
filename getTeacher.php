@@ -6,8 +6,8 @@ require 'connection.php';
 try {
     $data = array();
     
-    $tableName = "tbl_teacher";
-    $query = "SELECT * FROM " . $tableName;
+    $tableName = "tbl_user_info";
+    $query = "SELECT * FROM " . $tableName . " WHERE user_level_id = '1' AND status_id = '1'";
     $result = mysqli_query($db_con, $query);
 
     $teacherId = "";
@@ -21,9 +21,9 @@ try {
     );
 
     while($row = mysqli_fetch_assoc($result)) {
-        $item["teacherId"] = $row['teacher_id'];
-        $item["firstName"] = $row['teacher_first_name'];
-        $item["lastName"] = $row['teacher_last_name'];
+        $item["teacherId"] = $row['personal_id'];
+        $item["firstName"] = $row['first_name'];
+        $item["lastName"] = $row['last_name'];
         $data[] = $item;
     }                     
 
