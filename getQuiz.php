@@ -10,6 +10,7 @@ try {
     $result = mysqli_query($db_con, $query);
 
     $quizId = "";
+    $quizName = "";
     $question = "";
     $selectionA = "";
     $selectionB = "";
@@ -18,10 +19,11 @@ try {
     $quizScore = "";
     $quizImg = "";
     $quizTopicRef = "";
+    $attempts = "";
 
-    while($row = mysqli_fetch_assoc($result)) {
-        $item = array(
+    $item = array(
         "quizId" => $quizId,
+        "quizName" => $quizName,
         "question" => $question,
         "selectionA" => $selectionA,
         "selectionB" => $selectionB,
@@ -30,9 +32,12 @@ try {
         "score" => $quizScore,
         "quizImg" => $quizImg,
         "quizTopicRef" => $quizTopicRef,
-        );
+        "attempts" => $attempts
+    );        
+    while($row = mysqli_fetch_assoc($result)) {
         
         $item["quizId"] = $row['quiz_id'];
+        $item["quizName"] = $row['quiz_title'];
         $item["question"] = $row['quiz_question'];
         $item["selectionA"] = $row['quiz_selectionA'];
         $item["selectionB"] = $row['quiz_selectionB'];
@@ -40,6 +45,7 @@ try {
         $item["selectionD"] = $row['quiz_selectionD'];
         $item["score"] = $row['score'];
         $item["quizTopicRef"] = $row['topic_id'];
+        $item["attempts"] = $row['quiz_attempts'];
 
         $aquery = "SELECT * FROM tbl_quiz_image WHERE quiz_id LIKE ?";
         $stmt = mysqli_prepare($db_con, $aquery);
