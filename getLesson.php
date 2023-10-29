@@ -11,15 +11,24 @@ try {
 
     $subjectId = "";
     $subject = "";
-
+    $category = "";
+    
     $item = array(
         "subjectId" => $subjectId,
         "subject" => $subject,
+        "category" => $category
     );
 
     while (($row = mysqli_fetch_assoc($result))) {
         $item["subjectId"] = $row['lesson_id'];
         $item["subject"] = $row['lesson_name'];
+        $categoryId = $row['category_id'];
+        $tableName = "tbl_category";
+        $querya = "SELECT * FROM " . $tableName . " WHERE category_id = '" . $categoryId ."'";
+        $resulta = mysqli_query($db_con, $querya);
+        $row2 = mysqli_fetch_assoc($resulta);
+        $item["category"] = $row2['category_name'];
+    
         $data[] = $item;
     }               
 
