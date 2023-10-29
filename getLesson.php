@@ -28,7 +28,7 @@ try {
         $resulta = mysqli_query($db_con, $querya);
         $row2 = mysqli_fetch_assoc($resulta);
         $category = $row2['category_name'];
-        $item["category"] = $category.trim();
+        $item["category"] = trim($category);
     
         $data[] = $item;
     }               
