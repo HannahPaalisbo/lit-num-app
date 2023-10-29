@@ -15,6 +15,7 @@ try {
     $imageId = "";
     $audioId = "";
     $videoId = "";
+    $pdfPath = "";
 
     while (($row = mysqli_fetch_assoc($result))) {
         $topicId = $row['topic_id'];
@@ -26,7 +27,7 @@ try {
         "imagePath" => $imageId,
         "audioPath" => $audioId,
         "videoPath" => $videoId,
-        
+        "pdfPath" => $pdfPath
         );
         
         $item["topic"] = $row['topic_name'];
